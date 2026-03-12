@@ -9,10 +9,11 @@ e.preventDefault()
   setTitle([newTitle, ...titles])
 }
 
-
-/* const filteredTitles = titles.filtered
-console.log(filteredTitles); */
-
+function removeTitle(i){
+ const filteredTitles = titles.filter((title,index)=> index !=i)
+console.log(filteredTitles);
+setTitle(filteredTitles)
+}
 
 
   return (
@@ -28,7 +29,7 @@ console.log(filteredTitles); */
               </ul>
               </form>
                 {titles.map((title,index)=>(
-                  <li key={title+index}>{title} <button onClick={()=>console.log(index)}>remove title</button> </li>
+                  <li key={title+index}>{title} <button onClick={()=>removeTitle(index)}>remove title</button> </li>
                 ))}
             </div>
           </div>
