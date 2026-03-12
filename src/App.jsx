@@ -10,6 +10,11 @@ e.preventDefault()
 }
 
 
+/* const filteredTitles = titles.filtered
+console.log(filteredTitles); */
+
+
+
   return (
     <>
       <div>
@@ -20,15 +25,16 @@ e.preventDefault()
               <ul>
                 <input type="text" value={newTitle}onChange={e=>{setNewTitle(e.target.value)}} placeholder='scrivi un nuovo titolo'/>
                 <button>Aggiungi titolo</button>
-                {titles.map((title,index)=>(
-                  <li key={title+index}>{title} </li>
-                ))}
               </ul>
               </form>
+                {titles.map((title,index)=>(
+                  <li key={title+index}>{title} <button onClick={()=>console.log(index)}>remove title</button> </li>
+                ))}
             </div>
           </div>
         </div>
       </div>
+      
     </>
   )
 }
