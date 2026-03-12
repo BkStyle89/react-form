@@ -1,7 +1,10 @@
 import { useState } from 'react'
-
+const randomTitles =["titolo1", "titolo2", "titolo3", "titolo4", "titolo5"]
 function App() {
-  
+
+const [titles, setTitle]=useState(randomTitles)
+
+
   return (
     <>
       <div>
@@ -9,7 +12,9 @@ function App() {
           <div className='row'>
             <div className='col'>
               <ul>
-                
+                {titles.map((title,index)=>(
+                  <li key={title+index}>{title} </li>
+                ))}
               </ul>
             </div>
           </div>
