@@ -4,6 +4,10 @@ function App() {
 
 const [titles, setTitle]=useState(randomTitles)
 const [newTitle, setNewTitle]=useState("")
+function handleSubmit(e){
+e.preventDefault()
+  setTitle([newTitle, ...titles])
+}
 
 
   return (
@@ -12,12 +16,15 @@ const [newTitle, setNewTitle]=useState("")
         <div className="container">
           <div className='row'>
             <div className='col'>
+              <form onSubmit={handleSubmit}>
               <ul>
                 <input type="text" value={newTitle}onChange={e=>{setNewTitle(e.target.value)}} placeholder='scrivi un nuovo titolo'/>
+                <button>Aggiungi titolo</button>
                 {titles.map((title,index)=>(
                   <li key={title+index}>{title} </li>
                 ))}
               </ul>
+              </form>
             </div>
           </div>
         </div>
